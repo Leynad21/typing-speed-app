@@ -1,0 +1,17 @@
+.container {
+    color: aquamarine;
+}
+
+article {
+    margin-top: 2rem;
+    background-color: var(--color-bg-variant);
+    border: 2px solid aquamarine;
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+
+article p {
+    color: black;
+    text-align: left;
+    font-size: 0.8rem;
+}
