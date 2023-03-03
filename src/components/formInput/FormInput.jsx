@@ -1,33 +1,30 @@
 import styles from "./formInput.module.css"
 import React, { useReducer, useState } from 'react'
 
-const FormInput = () => {
+const FormInput = ({ text }) => {
 
     const [input, setInput] = useState("good")
 
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(input);
+    const ConditionalFormatting = () => {
+        const textArray = text.split("")
+        console.log(textArray);
     }
 
-    const handleInputChange = (e) => {
-        setInput(e.target.value)
-    }
 
 
     return (
         <div className={styles.container}>
             <div className={styles.textDisplay}>
-                <h3>{input}</h3>
+                <h3>
+                    {input}
+                </h3>
             </div>
             <div className={styles.formField}>
-                <form >
+                <form onSubmit={(e) => e.preventDefault()} >
                     <div>
-                        <input onChange={handleInputChange} />
+                        <input onChange={(e) => setInput(e.target.value)} />
                     </div>
-                    <button onClick={handleSubmit}>Submit</button>
+                    <button onClick={ConditionalFormatting}>here</button>
                 </form>
 
             </div>

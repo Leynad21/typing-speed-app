@@ -7,40 +7,23 @@ const EndpointAPI = "https://api.quotable.io/random"
 
 const TextGenerator = ({ getParagraph }) => {
 
-    const [text, setText] = useState("")
+    const [displayText, setDisplayText] = useState("")
 
     const getText = async () => {
         let paragraph = ""
-
         for (let i = 0; i < 5; i++) {
             const response = await Axios.get(EndpointAPI);
-            console.log(response);
             let new_paragraph = response.data.content
             paragraph = paragraph + " " + new_paragraph
-            console.log(paragraph);
-            setText(paragraph)
+            setDisplayText(paragraph)
         }
+        return paragraph
     }
 
-    const sendDataToParent = () => {
-        getText()
-        getParagraph(text)
+    const sendDataUp = async () => {
+        const value = await getText()
+        getParagraph(value)
     }
-
-
-    // const getText2 = async () => {
-    //     let paragraph = "";
-    //     const getParagraphs = async () => {
-    //         for (let i = 0; i < 5; i++) {
-    //             const response = await Axios.get(EndpointAPI);
-    //             const new_paragraph = response.data.content;
-    //             paragraph = paragraph + " " + new_paragraph;
-    //         }
-    //         return paragraph;
-    //     };
-    //     const finalParagraph = await getParagraphs();
-    //     setText(finalParagraph);
-    // };
 
 
     return (
@@ -48,10 +31,10 @@ const TextGenerator = ({ getParagraph }) => {
             <div className={styles.container}>
                 <article>
                     <p>
-                        {text}
+                        {displayText}
                     </p>
                 </article>
-                <button onClick={sendDataToParent} className={styles.btn}>get text</button>
+                <button onClick={sendDataUp} className={styles.btn}>get text</button>
 
             </div>
 
