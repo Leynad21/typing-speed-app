@@ -26,11 +26,11 @@
 
   --transition: all 400ms ease;
 
-  --color-bg: #FBFACD;
-  --color-bg-variant: #FFFDFA;
-  --color-title: crimson;
-  --color-primary: crimson;
-  --color-primary-variant: rgba(77, 181, 255, 0.4);
+  --color-bg: #865DFF;
+  --color-bg-variant: #E384FF;
+  --color-title: #191825;
+  --color-primary: #3A1078;
+  --color-primary-variant: #FFA3FD;
   --color-primary-light: rgba(220, 20, 60, 0.6);
   --color-right: green;
   --color-wrong: red;
