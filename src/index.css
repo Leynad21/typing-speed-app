@@ -32,6 +32,8 @@
   --color-primary: crimson;
   --color-primary-variant: rgba(77, 181, 255, 0.4);
   --color-primary-light: rgba(220, 20, 60, 0.6);
+  --color-right: green;
+  --color-wrong: red;
   --color-contrast-primary: #00CED1;
   --color-light: rgba(255, 255, 255, 0.6);
 

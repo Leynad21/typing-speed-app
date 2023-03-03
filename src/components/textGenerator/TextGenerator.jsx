@@ -3,28 +3,28 @@ import Axios from 'axios'
 import styles from "./textGenerator.module.css"
 
 
-
 const EndpointAPI = "https://api.quotable.io/random"
 
-const TextGenerator = () => {
+const TextGenerator = ({ getParagraph }) => {
 
     const [text, setText] = useState("")
 
-
-    const getText = () => {
+    const getText = async () => {
         let paragraph = ""
 
         for (let i = 0; i < 5; i++) {
-            Axios.get(EndpointAPI).then(
-                (response) => {
-                    console.log(response);
-                    let new_paragraph = response.data.content
-                    paragraph = paragraph + " " + new_paragraph
-                    console.log(paragraph);
-                    setText(paragraph)
-                }
-            )
+            const response = await Axios.get(EndpointAPI);
+            console.log(response);
+            let new_paragraph = response.data.content
+            paragraph = paragraph + " " + new_paragraph
+            console.log(paragraph);
+            setText(paragraph)
         }
+    }
+
+    const sendDataToParent = () => {
+        getText()
+        getParagraph(text)
     }
 
 
@@ -46,14 +46,12 @@ const TextGenerator = () => {
     return (
         <>
             <div className={styles.container}>
-                <h1>Start typing</h1>
-
                 <article>
                     <p>
                         {text}
                     </p>
                 </article>
-                <button onClick={getText}>get text</button>
+                <button onClick={sendDataToParent} className={styles.btn}>get text</button>
 
             </div>
 

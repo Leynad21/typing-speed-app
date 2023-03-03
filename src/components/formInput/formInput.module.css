@@ -1,0 +1,27 @@
+.container {
+    background-color: aliceblue;
+    margin: 1rem auto;
+    max-width: 50rem;
+
+}
+
+.textDisplay {
+    margin: 1rem auto;
+    border: 5px solid var(--color-bg-variant);
+    border-radius: 0.25rem;
+    padding: 1rem;
+    max-width: 90%;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.textDisplay h3 {
+    color: purple;
+}
+
+
+.formField input {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    font-size: 1.1rem;
+}

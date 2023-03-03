@@ -1,10 +1,14 @@
 import './App.css'
 import Main from './pages/main/Main'
 
+
 function App() {
 
+
   return (
-    <Main />
+    <div className="main__wrapper">
+      <Main />
+    </div >
   )
 }
 
